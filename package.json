@@ -1,0 +1,29 @@
+{
+  "name": "@abukix/portfolio",
+  "version": "0.1.0",
+  "description": "abukix.dev, JC Abucay's portfolio. SRE transitioning into AI/ML Platform Engineering, building basecamp and /root in public.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.2",
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource-variable/jetbrains-mono": "^5.1.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^7.0.4",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
