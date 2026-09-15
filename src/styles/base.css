@@ -1,0 +1,103 @@
+/* abukix.dev global CSS. Tailwind 4 config-in-CSS plus custom base styles.
+ *
+ * Design tokens sourced from the corestratum/brand repo (colors.md, typography.md):
+ * the three-color family gradient (purple, pink, orange), dark-first theme,
+ * light theme opt-in via data-theme="light" on <html> (no-flash init in
+ * BaseLayout.astro, toggle wired in Header.astro).
+ *
+ * Layout language is deliberately its own: no pill badges, no card grid, no
+ * background blobs. Those are /root's signature; this site reads as a single
+ * editorial scroll instead. See corestratum/brand for the token source of truth.
+ *
+ * Last verified: 2026-08 against Tailwind 4.x
+ */
+
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+@import 'tailwindcss';
+
+@source './**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}';
+
+/* Custom dark variant: dark is default; light is the opt-in override. */
+@custom-variant dark (&:where(:root:not([data-theme="light"]), :root:not([data-theme="light"]) *));
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --color-bg: #0a0a0f;
+  --color-bg-subtle: #13131a;
+
+  --color-ink: #e8e8f0;
+  --color-ink-muted: #a0a0b0;
+  --color-ink-subtle: #6a6a7a;
+
+  /* Family gradient. See corestratum/brand/colors.md. Do not add a fourth anchor. */
+  --color-accent-purple: #a855f7;
+  --color-accent-pink: #ec4899;
+  --color-accent-orange: #f97316;
+
+  --color-border: #22222e;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  /* Light theme override, activated by [data-theme="light"] on <html> */
+  :root[data-theme='light'] {
+    color-scheme: light;
+
+    --color-bg: #ffffff;
+    --color-bg-subtle: #f7f7f9;
+
+    --color-ink: #1a1a24;
+    --color-ink-muted: #55556a;
+    --color-ink-subtle: #7a7a8a;
+
+    --color-border: #e5e5ec;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-accent-purple) 30%, transparent);
+    color: var(--color-ink);
+  }
+
+  /* Theme-toggle icon visibility: show only the icon matching the current theme */
+  :root:not([data-theme='light']) .theme-icon-sun {
+    display: none;
+  }
+  :root[data-theme='light'] .theme-icon-moon {
+    display: none;
+  }
+}
+
+/* Family gradient text. See corestratum/brand/colors.md for the exact stops.
+ * Used sparingly, per brand rule: an accent on select phrases, not a
+ * section-wide treatment. */
+@utility text-gradient {
+  background-image: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
+  background-clip: text;
+  color: transparent;
+}
+
