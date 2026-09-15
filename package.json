@@ -1,7 +1,7 @@
 {
   "name": "@abukix/portfolio",
   "version": "0.1.0",
-  "description": "abukix.dev, JC Abucay's portfolio. SRE transitioning into AI/ML Platform Engineering, building basecamp and /root in public.",
+  "description": "abukix.dev, JC Abucay's portfolio. AI/MLOps Engineer building basecamp and /root in public.",
   "private": true,
   "type": "module",
   "engines": {
