@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <text x="120" y="340"
+    font-family="'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono', 'Berkeley Mono', Menlo, Consolas, monospace"
+    font-size="140" font-weight="700" fill="#fafafa">abukix</text>
+  <text x="120" y="430"
+    font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif"
+    font-size="36" font-weight="400" fill="#fafafa" opacity="0.75">building basecamp and /root in public</text>
+  <text x="120" y="560"
+    font-family="'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace"
+    font-size="24" font-weight="400" fill="#fafafa" opacity="0.45">abukix.dev</text>
+</svg>
