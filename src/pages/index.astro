@@ -1,0 +1,108 @@
+---
+/**
+ * Homepage. Editorial single-scroll layout, deliberately not /root's
+ * hero-plus-card-grid pattern. No pill badges, no project cards, no
+ * background blobs. Prose reads top to bottom; the reader hits project
+ * links inline and again in a plain list near the end.
+ *
+ * No employer named. Described generically as internal enterprise-scale
+ * work, since this is a public page, not a formal application document.
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const work = [
+  { href: 'https://github.com/abukix/learnix', name: 'learnix', desc: 'A learning-in-public archive of cloud and platform engineering notes.' },
+  { href: 'https://github.com/abukix/katas', name: 'katas', desc: 'A single roadmap of coding exercises, start to finish.' },
+  { href: 'https://root.abukix.dev', name: '/root', desc: 'The curriculum. 50 phases across 5 arcs, fully authored.' },
+  { href: 'https://github.com/corestratum/basecamp', name: 'basecamp', desc: 'The platform. Architecture and roadmap only, no module code yet.' },
+  { href: 'https://github.com/abukix/bootstrap', name: 'bootstrap', desc: 'Idempotent dev-laptop setup for Ubuntu, Debian, and macOS.' },
+  { href: 'https://github.com/corestratum/brand', name: 'brand', desc: 'Design tokens and voice guidelines behind every abukix artifact.' },
+  { href: 'https://github.com/abukix/homelab', name: 'homelab', desc: 'Hardware and OSS stack notes for the homelab running basecamp.' },
+];
+---
+
+<BaseLayout title="abukix">
+  <article class="max-w-2xl mx-auto px-6 pt-32 pb-24">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3 tracking-tight text-ink">
+      JC Abucay
+    </h1>
+    <p class="text-lg text-ink-muted mb-16">
+      SRE becoming an AI/ML platform engineer, building in public.
+    </p>
+
+    <div class="prose-body space-y-6 text-lg leading-relaxed text-ink-muted">
+      <p>
+        I work Support/SRE on an internal, enterprise-scale data platform. Alerts, triage, production incidents: the operational side of a system someone else designed. That has been most of my career so far.
+      </p>
+
+      <p>
+        A while back I started wondering what it would take to be the one designing the system instead of the one paged for it. Day to day, that means working through fundamentals, tracked in <a href="https://github.com/abukix/learnix" class="text-ink hover:text-gradient transition-colors underline underline-offset-4">learnix</a> and practiced in <a href="https://github.com/abukix/katas" class="text-ink hover:text-gradient transition-colors underline underline-offset-4">katas</a>. Alongside that, I'm authoring a bigger curriculum of my own: five arcs, fifty phases, starting at Linux fundamentals and ending at ML platform infrastructure. I call it <a href="https://root.abukix.dev" class="text-ink hover:text-gradient transition-colors underline underline-offset-4">/root</a>.
+      </p>
+    </div>
+
+    <blockquote class="my-16 pl-6 border-l-2 border-accent-purple">
+      <p class="text-2xl md:text-3xl font-semibold leading-snug text-ink">
+        Tools change every five years.<br />
+        <span class="text-ink-muted">Patterns don't change in thirty.</span>
+      </p>
+    </blockquote>
+
+    <div class="prose-body space-y-6 text-lg leading-relaxed text-ink-muted">
+      <p>
+        That is the bet <span class="text-gradient font-semibold">/root</span> is built on. Every phase names the underlying pattern before it names the tool, because tools get replaced and patterns do not. The curriculum is fully authored now: fifty phases, five arcs, all of it public.
+      </p>
+
+      <p>
+        The platform the curriculum is meant to produce is <a href="https://github.com/corestratum/basecamp" class="text-ink hover:text-gradient transition-colors underline underline-offset-4">basecamp</a>, an open-source data, ML, and AI stack meant to run the same way on a laptop, a homelab, or the cloud. Right now it is architecture and a roadmap. No module code has shipped. I would rather say that plainly than let the repo imply otherwise. Both <span class="font-mono">/root</span> and <span class="font-mono">basecamp</span> now live under the <a href="https://github.com/corestratum" class="text-ink hover:text-gradient transition-colors underline underline-offset-4">corestratum</a> org — the goal outgrew a personal side project, so it gets its own home and its own pace.
+      </p>
+    </div>
+
+    <h2 class="text-sm font-mono uppercase tracking-wider text-ink-subtle mt-20 mb-6">
+      Selected work
+    </h2>
+    <ul class="space-y-5">
+      {
+        work.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener"
+              class="font-mono text-ink hover:text-gradient transition-colors"
+            >
+              {item.name}
+            </a>
+            <span class="text-ink-subtle">: {item.desc}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-20 pt-8 border-t border-border">
+      <h2 class="text-sm font-mono uppercase tracking-wider text-ink-subtle mb-4">
+        Support the journey
+      </h2>
+      <p class="text-lg text-ink-muted leading-relaxed">
+        None of this is finished, and that is the point of building it in public. If a repo above is useful to you, a star helps more than it might seem: it is the signal that tells me which parts are actually worth finishing first. A follow on GitHub means you see the next one when it ships.
+      </p>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-border">
+      <h2 class="text-sm font-mono uppercase tracking-wider text-ink-subtle mb-4">
+        Reach me
+      </h2>
+      <p class="text-lg text-ink-muted leading-relaxed mb-6">
+        Questions, corrections, or you're working on something similar and want to compare notes: any of these reach me.
+      </p>
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        <a href="https://github.com/abukix" target="_blank" rel="noopener" class="font-mono text-ink hover:text-gradient transition-colors">GitHub</a>
+        <a href="https://linkedin.com/in/abukix" target="_blank" rel="noopener" class="font-mono text-ink hover:text-gradient transition-colors">LinkedIn</a>
+        <a href="https://x.com/abukix" target="_blank" rel="noopener" class="font-mono text-ink hover:text-gradient transition-colors">X</a>
+      </div>
+    </div>
+
+    <p class="text-base text-ink-subtle mt-20 pt-8 border-t border-border">
+      Everything above is public because half-finished, in-progress work is still worth showing honestly.
+    </p>
+  </article>
+</BaseLayout>
